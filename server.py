@@ -2,9 +2,10 @@
 
 import socket
 import sys
+import os
 
 mac_address = "a8:a1:59:12:f9:3b"
-password = "open sesame"
+password = "opeN Sesam3"
 
 if len(sys.argv) == 3:
     # Get "IP address of Server" and also the "port number" from
@@ -25,10 +26,10 @@ while True:
     print("####### Server is listening #######")
     data, address = s.recvfrom(4096)
     print("\n\n 2. Server received: ", data.decode('utf-8'), "\n\n")
-    if data == password:
+    if password in str(data):
         os.system(f"wol {mac_address}")
         send_data = "Wakeup initiated..."
     else:
-        send_data = "Incorrect password"
+        send_data = f"Incorrect password ({data})"
     s.sendto(send_data.encode('utf-8'), address)
     print("\n\n 1. Server sent : ", send_data,"\n\n")
