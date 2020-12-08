@@ -27,7 +27,7 @@ while True:
     data, address = s.recvfrom(4096)
     print("\n\n 2. Server received: ", data.decode('utf-8'), "\n\n")
     if password in str(data):
-        os.system(f"wol {mac_address}")
+        os.system(f"wakeonlan {mac_address}")
         send_data = "Wakeup initiated..."
     else:
         send_data = f"Incorrect password ({data})"
