@@ -4,11 +4,14 @@ import socket
 import sys
 import os
 
-mac_address = "a8:a1:59:12:f9:3b"
-password = "opeN Sesam3"
+mac_address = os.environ["WOL_TARGET_MAC"]
+if mac_address is None or mac_address == "":
+    mac_address = input("WoL target mac address: ")
+password = os.environ["WOL_PASSWORD"]
+if password is None or password == "":
+    password = input("WoL activation password: ")
 
 if len(sys.argv) == 3:
-    # Get "IP address of Server" and also the "port number" from
     ip = sys.argv[1]
     port = int(sys.argv[2])
 else:
