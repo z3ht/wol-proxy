@@ -1,5 +1,5 @@
 # wol-proxy
-Very simple tool for receiving proxy Wake-on-Lan (WoL) packets accross networks and initializing an intra-network wakeup 
+Very simple tool for receiving proxy Wake-on-Lan (WoL) packets across networks and initializing an intra-network wakeup 
 
 This tool allows for keeping a high power device on extreme low power mode and a much smaller device (like a raspberry pi) on and waiting for a wakeup packet to turn on the high power device only when it is needed so power can be saved.
 
